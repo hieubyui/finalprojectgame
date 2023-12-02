@@ -1,0 +1,9 @@
+C:\Users\cryse\OneDrive\Desktop\Godot\GodotProjects\celestemovement\.mono\temp\bin\Debug\celeste_movement.dll
+C:\Users\cryse\OneDrive\Desktop\Godot\GodotProjects\celestemovement\.mono\temp\bin\Debug\celeste_movement.pdb
+C:\Users\cryse\OneDrive\Desktop\Godot\GodotProjects\celestemovement\.mono\temp\obj\Debug\celeste_movement.csproj.AssemblyReference.cache
+C:\Users\cryse\OneDrive\Desktop\Godot\GodotProjects\celestemovement\.mono\temp\obj\Debug\celeste_movement.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\cryse\OneDrive\Desktop\Godot\GodotProjects\celestemovement\.mono\temp\obj\Debug\celeste_movement.AssemblyInfoInputs.cache
+C:\Users\cryse\OneDrive\Desktop\Godot\GodotProjects\celestemovement\.mono\temp\obj\Debug\celeste_movement.AssemblyInfo.cs
+C:\Users\cryse\OneDrive\Desktop\Godot\GodotProjects\celestemovement\.mono\temp\obj\Debug\celeste_movement.csproj.CoreCompileInputs.cache
+C:\Users\cryse\OneDrive\Desktop\Godot\GodotProjects\celestemovement\.mono\temp\obj\Debug\celeste_movement.dll
+C:\Users\cryse\OneDrive\Desktop\Godot\GodotProjects\celestemovement\.mono\temp\obj\Debug\celeste_movement.pdb
