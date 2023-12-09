@@ -1,1 +1,1 @@
-{"res://PlayerController.cs":{"modified_time":"1701461224","class":{"namespace":"","class_name":"PlayerController","nested":false}}}
+{"res://GhostPlayer.cs":{"modified_time":"1702065450","class":{"namespace":"","class_name":"GhostPlayer","nested":false}},"res://PlayerController.cs":{"modified_time":"1702066885","class":{"namespace":"","class_name":"PlayerController","nested":false}}}

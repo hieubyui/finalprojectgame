@@ -7,3 +7,4 @@ C:\Users\cryse\OneDrive\Desktop\Godot\GodotProjects\celestemovement\.mono\temp\o
 C:\Users\cryse\OneDrive\Desktop\Godot\GodotProjects\celestemovement\.mono\temp\obj\Debug\celeste_movement.csproj.CoreCompileInputs.cache
 C:\Users\cryse\OneDrive\Desktop\Godot\GodotProjects\celestemovement\.mono\temp\obj\Debug\celeste_movement.dll
 C:\Users\cryse\OneDrive\Desktop\Godot\GodotProjects\celestemovement\.mono\temp\obj\Debug\celeste_movement.pdb
+C:\Users\cryse\OneDrive\Desktop\Godot\GodotProjects\celestemovement\.mono\temp\obj\Debug\celeste_movement.sourcelink.json

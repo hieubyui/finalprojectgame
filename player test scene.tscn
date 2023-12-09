@@ -1,8 +1,12 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://PlayerController.cs" type="Script" id=1]
 [ext_resource path="res://platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/tileset.png" type="Texture" id=2]
 [ext_resource path="res://platformer_metroidvania asset pack v1.01/herochar sprites(new)/herochar_idle_anim_strip_4.png" type="Texture" id=3]
+[ext_resource path="res://platformer_metroidvania asset pack v1.01/herochar sprites(new)/herochar_jump_up_anim_strip_3.png" type="Texture" id=4]
+[ext_resource path="res://platformer_metroidvania asset pack v1.01/herochar sprites(new)/herochar_run_anim_strip_6.png" type="Texture" id=5]
+[ext_resource path="res://platformer_metroidvania asset pack v1.01/herochar sprites(new)/herochar_hit_anim_strip_3.png" type="Texture" id=6]
+[ext_resource path="res://GhostPlayer.tscn" type="PackedScene" id=7]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -105,6 +109,54 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 6.11473, 9.18533 )
 
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 5 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 5 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 5 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 5 )
+region = Rect2( 64, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 5 )
+region = Rect2( 80, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 4 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 4 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 6 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 6 )
+region = Rect2( 32, 0, 16, 16 )
+
 [sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 3 )
 region = Rect2( 0, 0, 16, 16 )
@@ -121,16 +173,31 @@ region = Rect2( 32, 0, 16, 16 )
 atlas = ExtResource( 3 )
 region = Rect2( 48, 0, 16, 16 )
 
-[sub_resource type="SpriteFrames" id=11]
+[sub_resource type="SpriteFrames" id=23]
 animations = [ {
+"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
+"loop": true,
+"name": "Run",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 17 ), SubResource( 18 ), SubResource( 19 ) ],
+"loop": true,
+"name": "Jump",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 20 ), SubResource( 21 ), SubResource( 22 ) ],
+"loop": true,
+"name": "TakeDamage",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
 "loop": true,
-"name": "default",
+"name": "Idle",
 "speed": 5.0
 } ]
 
 [node name="Node2D" type="Node2D"]
-position = Vector2( -14, -7 )
+position = Vector2( -16.8284, -3.11091 )
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( -12.7423, -0.943878 )
@@ -142,6 +209,7 @@ tile_data = PoolIntArray( 196595, 0, 0, 131119, 2, 0, 262131, 0, 0, 196655, 2, 0
 [node name="Player" type="KinematicBody2D" parent="."]
 position = Vector2( 112.552, 55.7878 )
 script = ExtResource( 1 )
+GhostPlayerInstance = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2( 0.166855, 0 )
@@ -149,8 +217,8 @@ shape = SubResource( 6 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Player"]
 position = Vector2( 0.594589, -0.18808 )
-frames = SubResource( 11 )
-frame = 1
+frames = SubResource( 23 )
+animation = "Idle"
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2( -0.38456, -0.244446 )
