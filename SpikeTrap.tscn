@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://SpikeTrap.cs" type="Script" id=1]
+[ext_resource path="res://platformer_metroidvania asset pack v1.01/miscellaneous sprites/spikes.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 5.76491, 5.97992 )
+
+[node name="SpikeTrap" type="Node2D"]
+position = Vector2( 168.665, 54.8084 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+rotation = 3.14159
+texture = ExtResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0, 1.41218 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

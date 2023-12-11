@@ -1,12 +1,13 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=26 format=2]
 
-[ext_resource path="res://PlayerController.cs" type="Script" id=1]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/tileset.png" type="Texture" id=2]
-[ext_resource path="res://platformer_metroidvania asset pack v1.01/herochar sprites(new)/herochar_idle_anim_strip_4.png" type="Texture" id=3]
-[ext_resource path="res://platformer_metroidvania asset pack v1.01/herochar sprites(new)/herochar_jump_up_anim_strip_3.png" type="Texture" id=4]
-[ext_resource path="res://platformer_metroidvania asset pack v1.01/herochar sprites(new)/herochar_run_anim_strip_6.png" type="Texture" id=5]
-[ext_resource path="res://platformer_metroidvania asset pack v1.01/herochar sprites(new)/herochar_hit_anim_strip_3.png" type="Texture" id=6]
-[ext_resource path="res://GhostPlayer.tscn" type="PackedScene" id=7]
+[ext_resource path="res://SpikeTrap.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ArcherEnemy.cs" type="Script" id=4]
+[ext_resource path="res://platformer_metroidvania asset pack v1.01/enemies sprites/bomber goblin/bomber_goblin_attack_anim_strip_6.png" type="Texture" id=5]
+[ext_resource path="res://platformer_metroidvania asset pack v1.01/enemies sprites/bomber goblin/bomber_goblin_idle_anim_strip_4.png" type="Texture" id=6]
+[ext_resource path="res://GameManager.cs" type="Script" id=11]
+[ext_resource path="res://RespawnPoint.tscn" type="PackedScene" id=12]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -106,98 +107,68 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 } ]
 3/z_index = 0
 
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 6.11473, 9.18533 )
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 6 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 6 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 6 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 5 )
-region = Rect2( 0, 0, 16, 16 )
+region = Rect2( 16, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 5 )
-region = Rect2( 16, 0, 16, 16 )
+region = Rect2( 32, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 5 )
-region = Rect2( 32, 0, 16, 16 )
+region = Rect2( 48, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 5 )
-region = Rect2( 48, 0, 16, 16 )
+region = Rect2( 64, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 5 )
-region = Rect2( 64, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=16]
-atlas = ExtResource( 5 )
 region = Rect2( 80, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=17]
-atlas = ExtResource( 4 )
-region = Rect2( 0, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=18]
-atlas = ExtResource( 4 )
-region = Rect2( 16, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=19]
-atlas = ExtResource( 4 )
-region = Rect2( 32, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=20]
-atlas = ExtResource( 6 )
-region = Rect2( 0, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=21]
-atlas = ExtResource( 6 )
-region = Rect2( 16, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=22]
-atlas = ExtResource( 6 )
-region = Rect2( 32, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=7]
-atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=8]
-atlas = ExtResource( 3 )
-region = Rect2( 16, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=9]
-atlas = ExtResource( 3 )
-region = Rect2( 32, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=10]
-atlas = ExtResource( 3 )
-region = Rect2( 48, 0, 16, 16 )
-
-[sub_resource type="SpriteFrames" id=23]
+[sub_resource type="SpriteFrames" id=16]
 animations = [ {
-"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
 "loop": true,
-"name": "Run",
+"name": "idle",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 17 ), SubResource( 18 ), SubResource( 19 ) ],
+"frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ) ],
 "loop": true,
-"name": "Jump",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 20 ), SubResource( 21 ), SubResource( 22 ) ],
-"loop": true,
-"name": "TakeDamage",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
-"loop": true,
-"name": "Idle",
+"name": "Attack",
 "speed": 5.0
 } ]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="CircleShape2D" id=17]
+radius = 176.515
+
+[node name="GameManager" type="Node2D"]
 position = Vector2( -16.8284, -3.11091 )
+script = ExtResource( 11 )
+RespawnPoint = ExtResource( 12 )
+
+[node name="RespawnPoint" parent="." instance=ExtResource( 12 )]
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( -12.7423, -0.943878 )
@@ -206,43 +177,37 @@ cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 196595, 0, 0, 131119, 2, 0, 262131, 0, 0, 196655, 2, 0, 327667, 0, 0, 327679, 0, 0, 262146, 1, 0, 262147, 3, 0, 262148, 3, 0, 262149, 3, 0, 262150, 3, 0, 262151, 3, 0, 262152, 3, 0, 262153, 3, 0, 262154, 3, 0, 262155, 3, 0, 262156, 3, 0, 262157, 3, 0, 262158, 3, 0, 262159, 3, 0, 262160, 3, 0, 262161, 3, 0, 262162, 3, 0, 262163, 3, 0, 262164, 3, 0, 262165, 3, 0, 262166, 3, 0, 262167, 3, 0, 262168, 3, 0, 262169, 3, 0, 262170, 3, 0, 262171, 3, 0, 262172, 3, 0, 262191, 2, 0, 393203, 0, 0, 393215, 0, 0, 327682, 2, 0, 327708, 0, 0, 327727, 2, 0, 458739, 0, 0, 458751, 0, 0, 393218, 2, 0, 393244, 0, 0, 393263, 2, 0, 524275, 0, 0, 524287, 0, 0, 458754, 2, 0, 458780, 0, 0, 458791, 2, 0, 458792, 3, 0, 458793, 3, 0, 458794, 3, 0, 458795, 3, 0, 458796, 3, 0, 458797, 3, 0, 458798, 3, 0, 458799, 3, 0, 589811, 0, 0, 589823, 0, 0, 524290, 2, 0, 524316, 0, 0, 524319, 0, 0, 524322, 0, 0, 524327, 2, 0, 655347, 0, 0, 655359, 0, 0, 589826, 2, 0, 589852, 0, 0, 589855, 0, 0, 589858, 0, 0, 589862, 3, 0, 589863, 2, 0, 720883, 0, 0, 655362, 2, 0, 655388, 0, 0, 655391, 0, 0, 655394, 0, 0, 655398, 3, 0, 655399, 2, 0, 786419, 0, 0, 720898, 2, 0, 720924, 0, 0, 720927, 0, 0, 720930, 0, 0, 720934, 3, 0, 720935, 2, 0, 851955, 0, 0, 786434, 2, 0, 786460, 0, 0, 786461, 3, 0, 786462, 3, 0, 786463, 3, 0, 786464, 3, 0, 786465, 3, 0, 786466, 3, 0, 786467, 3, 0, 786468, 3, 0, 786469, 3, 0, 786470, 3, 0, 786471, 3, 0, 917491, 3, 0, 917492, 3, 0, 917493, 3, 0, 917494, 3, 0, 917495, 3, 0, 917496, 3, 0, 917497, 3, 0, 917498, 3, 0, 917499, 3, 0, 917500, 3, 0, 917501, 3, 0, 917502, 3, 0, 917503, 3, 0, 851968, 3, 0, 851969, 3, 0, 851970, 1, 0 )
 
-[node name="Player" type="KinematicBody2D" parent="."]
-position = Vector2( 112.552, 55.7878 )
-script = ExtResource( 1 )
-GhostPlayerInstance = ExtResource( 7 )
+[node name="SpikeTrap" parent="." instance=ExtResource( 3 )]
+position = Vector2( 103.259, 54.5111 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2( 0.166855, 0 )
-shape = SubResource( 6 )
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 32.5625, 53.404 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Player"]
-position = Vector2( 0.594589, -0.18808 )
-frames = SubResource( 23 )
-animation = "Idle"
+[node name="ArcherEnemy" type="Node2D" parent="."]
+position = Vector2( 444.674, 54.593 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2( -0.38456, -0.244446 )
-current = true
-zoom = Vector2( 0.4, 0.4 )
+[node name="AnimatedSprite" type="AnimatedSprite" parent="ArcherEnemy"]
+frames = SubResource( 16 )
+animation = "Attack"
+frame = 5
 
-[node name="RayCastLeft" type="RayCast2D" parent="Player"]
-rotation = 1.5708
-enabled = true
-cast_to = Vector2( 0, 10 )
+[node name="DetectionRadius" type="Area2D" parent="ArcherEnemy"]
+position = Vector2( -0.629974, 0 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="RayCastRight" type="RayCast2D" parent="Player"]
-rotation = -1.5708
-enabled = true
-cast_to = Vector2( 0, 10 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArcherEnemy/DetectionRadius"]
+shape = SubResource( 17 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="RayCastLeftClimb" type="RayCast2D" parent="Player"]
-position = Vector2( 0, 7 )
-rotation = 1.5708
-enabled = true
-cast_to = Vector2( 0, 10 )
+[node name="ProjectileSpawn" type="Position2D" parent="ArcherEnemy"]
 
-[node name="RayCastRightClimb" type="RayCast2D" parent="Player"]
-position = Vector2( 0, 7 )
-rotation = -1.5708
-enabled = true
-cast_to = Vector2( 0, 10 )
+[connection signal="body_entered" from="ArcherEnemy/DetectionRadius" to="ArcherEnemy" method="_on_DetectionRadius_body_entered"]
+[connection signal="body_exited" from="ArcherEnemy/DetectionRadius" to="ArcherEnemy" method="_on_DetectionRadius_body_exited"]
